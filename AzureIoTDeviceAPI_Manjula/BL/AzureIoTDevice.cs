@@ -16,7 +16,7 @@ namespace AzureIoTDeviceAPI_Manjula.BL
        
         private DeviceClient s_deviceClient;
         DeviceClient Client = null;
-        static string DeviceConnectionString = "HostName=iothub2fortest.azure-devices.net;SharedAccessKeyName=iothub2fortest;SharedAccessKey=GlBBg5CjabISSTb2GhncoUuQ0HNzCvLTVGvYa/AfFao=";
+        static string DeviceConnectionString = "HostName=azureiothubfeb.azure-devices.net;SharedAccessKeyName=azureiothubfeb;SharedAccessKey=tFH4Nc5brCGojUHKLW9+lFgsZinedylqyGWLOV/ciJM=";
         RegistryManager registryManager = RegistryManager.CreateFromConnectionString(DeviceConnectionString);
         public async Task<string> AddDeviceAsync(string deviceId)
         {
