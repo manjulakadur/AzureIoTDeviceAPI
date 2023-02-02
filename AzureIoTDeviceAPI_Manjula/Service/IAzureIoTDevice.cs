@@ -1,4 +1,4 @@
-﻿using Microsoft.Azure.Devices.Client;
+using Microsoft.Azure.Devices.Client;
 
 namespace AzureIoTDeviceAPI_Manjula.Service
 {
@@ -9,7 +9,7 @@ namespace AzureIoTDeviceAPI_Manjula.Service
         Task<string> RemoveDeviceAsync(string deviceName);
         Task<string> UpdateDeviceAsync(string deviceName);
         Task<string> SendDeviceToCloudMessagesAsync(string connectionstring);
-        Task<string> DesiredPropertiesUpdate(string deviceName);
-        Task<string> ReportConnectivity(string deviceName);
+        Task<string> DesiredPropertiesUpdate(string deviceName, string desiredPropertyValue);
+        Task<string> ReportConnectivity(string connectionString, string deviceName, string reportPropertyValue);
     }
 }
