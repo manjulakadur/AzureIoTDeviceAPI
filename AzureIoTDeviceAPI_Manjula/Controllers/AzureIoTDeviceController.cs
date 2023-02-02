@@ -1,4 +1,4 @@
-﻿using AzureIoTDeviceAPI_Manjula.Service;
+using AzureIoTDeviceAPI_Manjula.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Devices.Client;
@@ -17,7 +17,7 @@ namespace AzureIoTDeviceAPI_Manjula.Controllers
 
         [HttpPost]
         [Route("CreateDevice")]
-        public async Task<string> CreateDevice(string DeviceName) 
+        public async Task<string> CreateDevice(string DeviceName)
         {
             return await _deviceIoTService.AddDeviceAsync(DeviceName);
         }
@@ -28,7 +28,7 @@ namespace AzureIoTDeviceAPI_Manjula.Controllers
         {
             return await _deviceIoTService.GetAllDevices();
         }
-        
+
         [HttpPut]
         [Route("UpdateDevice")]
         public async Task<string> UpdateDevice(string DeviceName)
@@ -45,21 +45,21 @@ namespace AzureIoTDeviceAPI_Manjula.Controllers
 
         [HttpPost]
         [Route("ReportedProperties")]
-        public async Task<string> ReportedProperties(string DeviceName)
+        public async Task<string> ReportedProperties(string connectionString, string DeviceName, string reportPropertyValue)
         {
-            return await _deviceIoTService.ReportConnectivity(DeviceName);
+            return await _deviceIoTService.ReportConnectivity(connectionString, DeviceName, reportPropertyValue);
         }
 
         [HttpPost]
         [Route("DesiredProperties")]
-        public async Task<string> DesiredProperties(string DeviceName)
+        public async Task<string> DesiredProperties(string DeviceName, string desiredPropertyValue)
         {
-            return await _deviceIoTService.DesiredPropertiesUpdate(DeviceName);
+            return await _deviceIoTService.DesiredPropertiesUpdate(DeviceName, desiredPropertyValue);
         }
 
         [HttpPost]
         [Route("TelemetryMessage")]
-        public async Task<string> TelemetryMessage(string connectionstring)  
+        public async Task<string> TelemetryMessage(string connectionstring)
         {
             return await _deviceIoTService.SendDeviceToCloudMessagesAsync(connectionstring);
         }
